@@ -224,13 +224,17 @@ session.close();
                 Empleado empleado = (Empleado) newValue;
                 if (empleado != null) {
                     if (empleado.isActivo()==true){
+                        contextMenu.getItems().get(1).setVisible(false);
                         contextMenu.getItems().get(2).setDisable(false);
                         contextMenu.getItems().get(1).setDisable(true);
+                        contextMenu.getItems().get(2).setVisible(true);
                         System.out.println("1= "+contextMenu.getItems().get(1).getText());
                         System.out.println("0 = "+contextMenu.getItems().get(0).getText());
                         System.out.println("2 = "+contextMenu.getItems().get(2).getText());
                         contextMenu.getItems().get(1).setDisable(true);
                     }else if (empleado.isActivo()==false){
+                        contextMenu.getItems().get(1).setVisible(true);
+                        contextMenu.getItems().get(2).setVisible(false);
                         contextMenu.getItems().get(2).setDisable(true);
                         contextMenu.getItems().get(1).setDisable(false);
                         System.out.println("1= "+contextMenu.getItems().get(1).getText());

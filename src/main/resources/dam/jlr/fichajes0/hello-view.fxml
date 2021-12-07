@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="495.0" prefWidth="822.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.jlr.fichajes0.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <TabPane prefHeight="385.0" prefWidth="782.0" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Empleados">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="252.0" prefWidth="782.0">
+                  <children>
+                     <Button fx:id="btnAlta" layoutX="657.0" layoutY="55.0" mnemonicParsing="false" onAction="#alta" text="Alta" />
+                     <TableView fx:id="tblEmpleados" layoutX="77.0" layoutY="106.0" prefHeight="200.0" prefWidth="617.0">
+                       <columns>
+                         <TableColumn fx:id="colId" prefWidth="43.0" text="id" />
+                         <TableColumn fx:id="colNombre" minWidth="0.0" prefWidth="133.5" text="nombre" />
+                           <TableColumn fx:id="colApellidos" prefWidth="280.0" text="Apellidos" />
+                           <TableColumn fx:id="colFichajes" prefWidth="234.5" text="Fichajes" />
+                       </columns>
+                        <contextMenu>
+                           <ContextMenu fx:id="contextMenu">
+                             <items>
+                               <MenuItem mnemonicParsing="false" onAction="#borrar" text="Borrar empleado" />
+                                 <MenuItem mnemonicParsing="false" onAction="#activar" text="Activar"  />
+                                 <MenuItem mnemonicParsing="false" onAction="#desactivar" text="Desactivar" />
+                             </items>
+                           </ContextMenu>
+                        </contextMenu>
+                     </TableView>
+                     <TextField fx:id="txtId" layoutX="77.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" promptText="Id" />
+                     <TextField fx:id="txtNombre" layoutX="152.0" layoutY="20.0" prefHeight="25.0" prefWidth="188.0" promptText="nombre" />
+                     <TextField fx:id="txtApellidos" layoutX="355.0" layoutY="20.0" prefHeight="25.0" prefWidth="337.0" promptText="apellidos" />
+                     <Button fx:id="btnModificar" layoutX="581.0" layoutY="55.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+                     <Button layoutX="510.0" layoutY="55.0" mnemonicParsing="false" onAction="#buscarEmpleadoNombre" text="Buscar" />
+                     <Button fx:id="generarButton" layoutX="77.0" layoutY="68.0" mnemonicParsing="false" onAction="#generar" text="Generar aleatori@" />
+                     <CheckBox fx:id="activadosCheck" layoutX="77.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchActivados" text="Activados" />
+                     <CheckBox fx:id="desactivadosCheck" layoutX="167.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchDesactivados" text="Desactivados" />
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Fichajes">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <TreeTableView fx:id="treetable" prefHeight="276.0" prefWidth="789.0">
+                       <columns>
+                         <TreeTableColumn prefWidth="75.0" text="C1" />
+                         <TreeTableColumn prefWidth="75.0" text="C2" />
+                       </columns>
+                     </TreeTableView>
+                     <Button layoutX="661.0" layoutY="287.0" mnemonicParsing="false" text="Entrada" />
+                     <Button layoutX="730.0" layoutY="287.0" mnemonicParsing="false" text="Salida" />
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
+</VBox>

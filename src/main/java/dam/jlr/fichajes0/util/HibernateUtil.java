@@ -11,8 +11,20 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
-public class HibernateUtil {
+public  class HibernateUtil {
     private static SessionFactory sessionFactory;
+    private static String databaseName = "pruebass";
+    private static String user = "root";
+    private static String password = "";
+
+
+    public static String getDatabaseName() {
+        return databaseName;
+    }
+
+    public static void setDatabaseName(String databaseName) {
+        HibernateUtil.databaseName = databaseName;
+    }
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
@@ -20,10 +32,10 @@ public class HibernateUtil {
             try {
                 Configuration configuration = new Configuration();
 
-                //hibernate settings equaivalient to hibernate.cfg.xml's properties
+
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/repaso?useSSL=false");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/"+databaseName+"?useSSL=false&createDatabaseIfNotExist=true");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");

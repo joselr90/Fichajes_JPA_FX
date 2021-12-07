@@ -13,6 +13,9 @@ module dam.jlr.fichajes {
     requires java.sql;
     requires org.hibernate.orm.core;
     requires javafaker;
+    //requires swing
+
+
 
     opens dam.jlr.fichajes0 to javafx.fxml,org.hibernate.orm.core,javafx.base;
     opens dam.jlr.fichajes0.model to org.hibernate.orm.core,javafx.base;
